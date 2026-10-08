@@ -1,0 +1,14 @@
+{
+  "name": "ponto-torrefacao-build",
+  "private": true,
+  "description": "Exporta PNGs das aplicações, da home do site e dos logotipos da identidade Ponto Torrefação.",
+  "type": "module",
+  "scripts": {
+    "exportar": "node exportar.mjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@sparticuz/chromium": "^153.0.0",
+    "puppeteer-core": "^25.13.0"
+  }
+}

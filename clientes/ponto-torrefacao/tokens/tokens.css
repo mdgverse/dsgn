@@ -1,0 +1,40 @@
+:root {
+  --ponto-color-torra: #2b1d16;
+  --ponto-color-pergaminho: #f3ede2;
+  --ponto-color-pergaminho-claro: #fbf8f2;
+  --ponto-color-cereja: #b8372c;
+  --ponto-color-mel: #d9a441;
+  --ponto-color-verde-cafe: #c9d2b6;
+  --ponto-color-verde-folha: #4c5e3f;
+  --ponto-color-cacau: #6e5c50;
+  --ponto-color-torra-1: #ebc97f;
+  --ponto-color-torra-3: #b9773a;
+  --ponto-color-torra-4: #7e4b2a;
+  --ponto-color-cereja-escuro: #9a2d24;
+  --ponto-color-torra-2: #d9a441;
+  --ponto-color-torra-5: #2b1d16;
+  --ponto-color-surface: #f3ede2;
+  --ponto-color-surface-card: #fbf8f2;
+  --ponto-color-on-surface: #2b1d16;
+  --ponto-color-on-surface-variant: #6e5c50;
+  --ponto-color-primary: #b8372c;
+  --ponto-color-on-primary: #f3ede2;
+  --ponto-color-secondary: #c9d2b6;
+  --ponto-color-on-secondary: #2b1d16;
+  --ponto-color-accent: #d9a441;
+  --ponto-color-on-accent: #2b1d16;
+  --ponto-color-inverse-surface: #2b1d16;
+  --ponto-color-on-inverse-surface: #f3ede2;
+  --ponto-spacing-xs: 8px;
+  --ponto-spacing-sm: 16px;
+  --ponto-spacing-md: 24px;
+  --ponto-spacing-lg: 32px;
+  --ponto-spacing-xl: 48px;
+  --ponto-spacing-xxl: 64px;
+  --ponto-spacing-xxxl: 96px;
+  --ponto-rounded-sm: 6px;
+  --ponto-rounded-md: 16px;
+  --ponto-rounded-lg: 28px;
+  --ponto-rounded-full: 999px;
+}
+

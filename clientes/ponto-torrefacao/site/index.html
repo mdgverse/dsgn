@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ponto Torrefação, cafés de especialidade</title>
+  <meta name="description" content="Cafés de especialidade torrados em Minas Gerais, com o perfil de torra indicado em cada saco.">
+  <link rel="stylesheet" href="../brand/brand.css">
+  <style>
+    body { background: var(--pergaminho); }
+    a { color: inherit; }
+
+    .cabecalho-site { display: flex; justify-content: space-between; align-items: center; gap: 32px; padding: 28px 64px; }
+    .cabecalho-site img { width: 176px; display: block; }
+    .nav-site { display: flex; align-items: center; gap: 32px; font: 500 16px/20px var(--fonte-texto); }
+    .nav-site a { text-decoration: none; }
+    .nav-site a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+    .heroi { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; padding: 40px 64px 96px; }
+    .heroi h1 { font-size: 96px; line-height: 96px; letter-spacing: -0.025em; }
+    .heroi .lead { color: var(--cacau); max-width: 36ch; margin: 32px 0 0; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 40px; }
+    .painel-heroi { background: var(--verde-cafe); border-radius: var(--raio-lg); aspect-ratio: 1 / 1; display: grid; place-items: center; }
+    .painel-heroi img { width: 70%; }
+
+    .secao-site { padding: 96px 64px; }
+    .secao-site > h2 { max-width: none; }
+    .secao-site > .lead { color: var(--cacau); margin-top: 20px; }
+
+    /* Seletor de torra: radios ocultos, rótulos clicáveis e detalhes por nível */
+    .escolha { margin-top: 56px; }
+    .escolha input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+    .opcoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .opcoes label {
+      display: grid; justify-items: center; gap: 14px; min-width: 156px;
+      padding: 20px 16px 18px; border-radius: var(--raio-md); border: 2px solid var(--verde-cafe);
+      cursor: pointer; font: 600 16px/20px var(--fonte-texto);
+    }
+
+    .opcoes label:hover { border-color: var(--torra); }
+    #n1:checked ~ .opcoes label[for="n1"],
+    #n2:checked ~ .opcoes label[for="n2"],
+    #n3:checked ~ .opcoes label[for="n3"],
+    #n4:checked ~ .opcoes label[for="n4"],
+    #n5:checked ~ .opcoes label[for="n5"] { border-color: var(--torra); background: var(--verde-cafe); }
+    #n1:focus-visible ~ .opcoes label[for="n1"],
+    #n2:focus-visible ~ .opcoes label[for="n2"],
+    #n3:focus-visible ~ .opcoes label[for="n3"],
+    #n4:focus-visible ~ .opcoes label[for="n4"],
+    #n5:focus-visible ~ .opcoes label[for="n5"] { outline: 3px solid var(--torra); outline-offset: 3px; }
+
+    .detalhes { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .detalhe { display: none; }
+    #n1:checked ~ .detalhes .d1,
+    #n2:checked ~ .detalhes .d2,
+    #n3:checked ~ .detalhes .d3,
+    #n4:checked ~ .detalhes .d4,
+    #n5:checked ~ .detalhes .d5 { display: block; }
+    .detalhe h3 { margin-bottom: 16px; }
+    .detalhe p { font-size: 18px; line-height: 28px; max-width: 52ch; }
+    .detalhe .metodo { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--cacau); }
+
+    .produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .produto { background: #fbf8f2; border-radius: var(--raio-lg); overflow: hidden; }
+    .produto .bloco { height: 200px; display: grid; place-items: center; }
+    .produto .corpo { padding: 24px 28px 28px; }
+    .produto h3 { font-size: 31px; line-height: 36px; }
+    .produto .notas { color: var(--cacau); margin: 8px 0 20px; font-size: 16px; }
+    .produto .linha { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .produto .preco { font: 600 20px/28px var(--fonte-texto); }
+
+    .assinatura { margin: 0 64px; background: var(--cereja); color: var(--pergaminho); border-radius: var(--raio-lg); padding: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .assinatura h2 { color: var(--pergaminho); }
+    .assinatura p { color: var(--pergaminho); }
+    .formulario { display: flex; gap: 12px; }
+    .formulario label { font: 600 16px/20px var(--fonte-texto); display: block; margin-bottom: 12px; }
+    .formulario input { flex: 1; min-width: 0; padding: 16px 22px; border-radius: var(--raio-pill); border: 2px solid var(--pergaminho); background: transparent; color: var(--pergaminho); font: 400 16px/20px var(--fonte-texto); }
+    .formulario input::placeholder { color: var(--pergaminho); }
+    .formulario .botao { background: var(--torra); color: var(--pergaminho); }
+
+    .rodape-site { background: var(--torra); color: var(--pergaminho); padding: 72px 64px 48px; display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap; }
+    .rodape-site img { width: 230px; display: block; margin-bottom: 24px; }
+    .rodape-site p { color: var(--verde-cafe); margin: 0; font-size: 15px; line-height: 24px; }
+    .rodape-site nav { display: flex; gap: 28px; font: 500 16px/20px var(--fonte-texto); }
+
+    @media (max-width: 900px) {
+      .cabecalho-site, .heroi, .secao-site, .rodape-site { padding-left: 24px; padding-right: 24px; }
+      .nav-site { display: none; }
+      .heroi, .detalhes, .assinatura { grid-template-columns: 1fr; }
+      .heroi h1 { font-size: 64px; line-height: 66px; }
+      .produtos { grid-template-columns: 1fr; }
+      .assinatura { margin: 0 24px; padding: 40px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="cabecalho-site">
+    <a href="#inicio" aria-label="Ponto Torrefação, início"><img src="../logo/logo-principal.svg" alt="Ponto Torrefação"></a>
+    <nav class="nav-site" aria-label="Principal">
+      <a href="#cafes">Cafés</a>
+      <a href="#escala">Escala de torra</a>
+      <a href="#assinatura">Assinatura</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <button type="button" class="botao botao-contorno">Carrinho, 0</button>
+  </header>
+
+  <main id="inicio">
+    <section class="heroi">
+      <div>
+        <h1>Sabor no ponto certo.</h1>
+        <p class="lead">Cafés de especialidade torrados em Minas Gerais, com o perfil de torra indicado em cada saco.</p>
+        <div class="acoes">
+          <a class="botao botao-primario" href="#cafes">Escolher meu café</a>
+          <a class="botao botao-contorno" href="#escala">Entender a escala</a>
+        </div>
+      </div>
+      <div class="painel-heroi" aria-hidden="true">
+        <img src="../logo/simbolo.svg" alt="">
+      </div>
+    </section>
+
+    <section class="secao-site" id="escala">
+      <h2>Escolha o ponto da sua torra.</h2>
+      <p class="lead">Cada nível da escala mostra o perfil da xícara. Não é um ranking: todos são bons, cada um para um jeito de preparar.</p>
+
+      <div class="escolha">
+        <input type="radio" name="torra" id="n1" aria-label="Claro">
+        <input type="radio" name="torra" id="n2" aria-label="Médio-claro">
+        <input type="radio" name="torra" id="n3" aria-label="Médio" checked>
+        <input type="radio" name="torra" id="n4" aria-label="Médio-escuro">
+        <input type="radio" name="torra" id="n5" aria-label="Escuro">
+
+        <div class="opcoes" role="group" aria-label="Níveis de torra">
+          <label for="n1"><span class="escala" style="--tam:12px;--borda:1.5px;"><span class="nivel n1 cheio"></span><span class="nivel n2"></span><span class="nivel n3"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>Claro</label>
+          <label for="n2"><span class="escala" style="--tam:12px;--borda:1.5px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>Médio-claro</label>
+          <label for="n3"><span class="escala" style="--tam:12px;--borda:1.5px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>Médio</label>
+          <label for="n4"><span class="escala" style="--tam:12px;--borda:1.5px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5"></span></span>Médio-escuro</label>
+          <label for="n5"><span class="escala" style="--tam:12px;--borda:1.5px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5 cheio"></span></span>Escuro</label>
+        </div>
+
+        <div class="detalhes">
+          <article class="detalhe d1">
+            <h3>Claro</h3>
+            <p>Acidez viva, notas florais e cítricas. Mostra a origem com mais clareza, em uma xícara leve e limpa.</p>
+            <p class="metodo">Método sugerido: V60 e coador de papel.</p>
+          </article>
+          <article class="detalhe d2">
+            <h3>Médio-claro</h3>
+            <p>Doçura de mel e frutas amarelas, com corpo leve. Equilíbrio entre acidez e doçura.</p>
+            <p class="metodo">Método sugerido: filtrado e prensa francesa.</p>
+          </article>
+          <article class="detalhe d3">
+            <h3>Médio</h3>
+            <p>Caramelo, cacau e final doce. É o ponto de partida para quem está começando e o favorito da casa.</p>
+            <p class="metodo">Método sugerido: qualquer método de filtrado, com receita da casa.</p>
+          </article>
+          <article class="detalhe d4">
+            <h3>Médio-escuro</h3>
+            <p>Chocolate amargo e corpo cheio. Ganha volume com leite sem perder a identidade do café.</p>
+            <p class="metodo">Método sugerido: prensa francesa e cappuccino.</p>
+          </article>
+          <article class="detalhe d5">
+            <h3>Escuro</h3>
+            <p>Torra intensa, amargor marcado e notas de defumado. Pensado para espresso e bebidas com leite.</p>
+            <p class="metodo">Método sugerido: espresso e moka.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao-site" id="cafes" style="padding-top:0;">
+      <h2>Cafés da casa.</h2>
+      <div class="produtos">
+        <article class="produto">
+          <div class="bloco" style="background:var(--torra-3);"><span class="escala" style="--tam:22px;--borda:2px;--linha:var(--torra);padding:10px 16px;border-radius:999px;background:var(--pergaminho-claro, #fbf8f2);"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4"></span><span class="nivel n5"></span></span></div>
+          <div class="corpo">
+            <h3>Cerrado Mineiro</h3>
+            <p class="notas">Caramelo, cacau e ameixa seca. Torra média.</p>
+            <div class="linha"><span class="preco">R$ 00,00</span><button type="button" class="botao botao-secundario">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="produto">
+          <div class="bloco" style="background:var(--torra-1);"><span class="escala" style="--tam:22px;--borda:2px;--linha:var(--torra);padding:10px 16px;border-radius:999px;background:var(--pergaminho-claro, #fbf8f2);"><span class="nivel n1 cheio"></span><span class="nivel n2"></span><span class="nivel n3"></span><span class="nivel n4"></span><span class="nivel n5"></span></span></div>
+          <div class="corpo">
+            <h3>Mantiqueira</h3>
+            <p class="notas">Mel, damasco e chá branco. Torra clara.</p>
+            <div class="linha"><span class="preco">R$ 00,00</span><button type="button" class="botao botao-secundario">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="produto">
+          <div class="bloco" style="background:var(--torra-4);"><span class="escala" style="--tam:22px;--borda:2px;--linha:var(--torra);padding:10px 16px;border-radius:999px;background:var(--pergaminho-claro, #fbf8f2);"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5 cheio"></span></span></div>
+          <div class="corpo">
+            <h3>Blend da casa</h3>
+            <p class="notas">Chocolate amargo e amêndoa torrada. Torra escura.</p>
+            <div class="linha"><span class="preco">R$ 00,00</span><button type="button" class="botao botao-secundario">Adicionar</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="assinatura" id="assinatura">
+      <div>
+        <h2>Um café no ponto, todo mês.</h2>
+        <p style="margin-top:20px;font-size:18px;line-height:28px;">Escolha o perfil, receba em casa e troque de torra quando quiser.</p>
+      </div>
+      <form class="formulario" onsubmit="return false;">
+        <div style="flex:1;">
+          <label for="email">Seu e-mail</label>
+          <div style="display:flex;gap:12px;">
+            <input id="email" type="email" placeholder="voce@exemplo.com" autocomplete="email">
+            <button class="botao" type="submit">Quero assinar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape-site" id="sobre">
+    <div>
+      <img src="../logo/logo-principal-negativo.svg" alt="Ponto Torrefação">
+      <p>Rua Exemplo, 100, Centro, Minas Gerais. Site de demonstração, com dados fictícios.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#cafes">Cafés</a>
+      <a href="#assinatura">Assinatura</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#inicio">Voltar ao topo</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

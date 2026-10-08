@@ -1,0 +1,14 @@
+# Dependências e ambientes
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# Logs e arquivos do sistema
+*.log
+build/npm-install.log
+.DS_Store
+
+# Caches e segredos locais
+.cache/
+.env

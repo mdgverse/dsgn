@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ponto Torrefação, demonstração de identidade visual</title>
+  <meta name="description" content="Hub do projeto de demonstração de identidade visual da Ponto Torrefação, marca fictícia.">
+  <link rel="stylesheet" href="brand/brand.css">
+  <style>
+    .hub { max-width: 1200px; margin: 0 auto; padding: 72px 64px 96px; }
+    .hub-topo { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: center; padding-bottom: 64px; border-bottom: 1px solid rgba(43, 29, 22, 0.16); }
+    .hub-topo img { width: 240px; }
+    .hub-topo h1 { margin-bottom: 16px; }
+    .hub-topo p { margin: 0; max-width: 56ch; color: var(--cacau); }
+    .hub-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
+    .hub-cartao { display: grid; gap: 12px; align-content: start; background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-md); padding: 32px; text-decoration: none; color: var(--torra); min-height: 200px; outline: 1px solid rgba(43, 29, 22, 0.08); outline-offset: -1px; }
+    .hub-cartao:hover { outline-color: var(--cereja); }
+    .hub-cartao:focus-visible { outline: 3px solid var(--cereja); outline-offset: 3px; }
+    .hub-cartao .rotulo { color: var(--cacau); }
+    .hub-cartao h2 { font: 600 25px/30px var(--fonte-titulo); margin: 0; }
+    .hub-cartao p { margin: 0; font-size: 16px; line-height: 26px; color: var(--cacau); }
+    .hub-cartao .seta { margin-top: auto; font: 600 14px/20px var(--fonte-texto); color: var(--cereja); }
+    .hub-rodape { margin-top: 80px; padding-top: 32px; border-top: 1px solid rgba(43, 29, 22, 0.16); color: var(--cacau); font-size: 14px; line-height: 22px; }
+    .hub-rodape a { color: var(--torra); text-underline-offset: 4px; }
+    @media (max-width: 960px) {
+      .hub { padding: 48px 24px 72px; }
+      .hub-topo { grid-template-columns: 1fr; gap: 32px; }
+      .hub-grade { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hub">
+    <header class="hub-topo">
+      <img src="logo/logo-principal.svg" alt="Ponto Torrefação">
+      <div>
+        <p class="rotulo">Projeto de demonstração</p>
+        <h1>Identidade visual completa, do conceito às aplicações.</h1>
+        <p>Projeto fictício. Marca, nome, pessoas, contatos, produtos e preços são inventados. O material mostra o sistema aplicado e os documentos que acompanham um projeto real.</p>
+      </div>
+    </header>
+
+    <nav aria-label="Peças do projeto">
+      <div class="hub-grade">
+        <a class="hub-cartao" href="manual/index.html">
+          <span class="rotulo">Documento principal</span>
+          <h2>Manual de identidade</h2>
+          <p>Nove seções: essência, conceito, logotipo, cores, tipografia, sistema gráfico, aplicações, código e entregáveis.</p>
+          <span class="seta">Abrir o manual →</span>
+        </a>
+        <a class="hub-cartao" href="site/index.html">
+          <span class="rotulo">Digital</span>
+          <h2>Site de demonstração</h2>
+          <p>Home com o seletor de torra, os cafés da casa e a assinatura mensal.</p>
+          <span class="seta">Abrir o site →</span>
+        </a>
+        <a class="hub-cartao" href="aplicacoes/index.html">
+          <span class="rotulo">Aplicações</span>
+          <h2>Peças aplicadas</h2>
+          <p>Cartão de visita, saco de 250 g, copo com luva, papel timbrado, assinatura de e-mail, posts e story.</p>
+          <span class="seta">Abrir as aplicações →</span>
+        </a>
+        <a class="hub-cartao" href="logo/">
+          <span class="rotulo">Logotipo</span>
+          <h2>Logotipos</h2>
+          <p>Dez variações em SVG. A pasta logo/png/ tem os PNG de 2000 px, com fundo transparente.</p>
+          <span class="seta">Ver os arquivos →</span>
+        </a>
+        <a class="hub-cartao" href="DESIGN.md">
+          <span class="rotulo">Tokens e regras</span>
+          <h2>DESIGN.md</h2>
+          <p>Cores, tipografia, raios, espaços e componentes, no formato DESIGN.md. É a fonte dos tokens.</p>
+          <span class="seta">Abrir o DESIGN.md →</span>
+        </a>
+        <a class="hub-cartao" href="tokens/tokens.css">
+          <span class="rotulo">Código</span>
+          <h2>Variáveis CSS</h2>
+          <p>Tokens gerados a partir do DESIGN.md, com prefixo <code>ponto</code>.</p>
+          <span class="seta">Abrir os tokens →</span>
+        </a>
+        <a class="hub-cartao" href="ESCOPO.md">
+          <span class="rotulo">Contrato de trabalho</span>
+          <h2>Escopo</h2>
+          <p>Fases, entregas, o que fica fora, revisões, critérios de aceite e investimento.</p>
+          <span class="seta">Abrir o escopo →</span>
+        </a>
+        <a class="hub-cartao" href="briefing.md">
+          <span class="rotulo">Ponto de partida</span>
+          <h2>Briefing</h2>
+          <p>Cliente, público, posicionamento e perguntas em aberto para o cliente real.</p>
+          <span class="seta">Abrir o briefing →</span>
+        </a>
+      </div>
+    </nav>
+
+    <footer class="hub-rodape">
+      Projeto de demonstração. Dados fictícios. Documentação técnica e comandos de regeneração em <a href="README.md">README.md</a>.
+    </footer>
+  </main>
+</body>
+</html>

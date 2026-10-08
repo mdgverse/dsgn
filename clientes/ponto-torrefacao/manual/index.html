@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de identidade visual, Ponto Torrefação</title>
+  <meta name="description" content="Manual de identidade visual da Ponto Torrefação, marca fictícia usada como projeto de demonstração.">
+  <link rel="stylesheet" href="../brand/brand.css">
+  <style>
+    .pagina { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+    a { color: inherit; }
+
+    /* Capa */
+    .capa { background: var(--torra); color: var(--pergaminho); min-height: 100vh; padding: 56px 64px 64px; display: flex; flex-direction: column; justify-content: space-between; }
+    .capa-logo { width: 360px; }
+    .capa h1 { color: var(--pergaminho); max-width: 14ch; }
+    .capa .lead { color: var(--verde-cafe); margin: 28px 0 0; max-width: 36ch; }
+    .capa-rodape { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+    .capa-rodape p { margin: 0; color: var(--mel); font-size: 14px; line-height: 20px; max-width: 42ch; }
+
+    /* Sumário */
+    .sumario { padding: 104px 0 16px; }
+    .sumario h2 { margin-bottom: 40px; }
+    .sumario ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 48px; }
+    .sumario li a { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(43, 29, 22, 0.16); text-decoration: none; font: 500 20px/28px var(--fonte-texto); }
+    .sumario li a span { font: 600 14px/20px var(--fonte-texto); color: var(--cacau); min-width: 24px; }
+    .sumario li a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+    /* Seções */
+    .secao { display: grid; grid-template-columns: 4fr 8fr; gap: 64px; padding: 120px 0; border-top: 1px solid rgba(43, 29, 22, 0.16); }
+    .secao > header .rotulo { display: block; color: var(--cacau); margin-bottom: 12px; }
+    .secao > header h2 { margin-bottom: 24px; }
+    .secao > header .lead { color: var(--cacau); margin: 0; }
+    .corpo > * + * { margin-top: 72px; }
+    .corpo h3 { margin-bottom: 24px; }
+    .corpo p { max-width: 64ch; }
+
+    /* Cartões e tabelas */
+    .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .cartao { background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-md); padding: 28px; }
+    .cartao h4 { margin-bottom: 12px; }
+    .cartao p { margin: 0; font-size: 16px; line-height: 26px; }
+    .tabela { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 24px; }
+    .tabela th, .tabela td { text-align: left; vertical-align: top; padding: 14px 24px 14px 0; border-bottom: 1px solid rgba(43, 29, 22, 0.16); }
+    .tabela th { font: 600 14px/20px var(--fonte-texto); color: var(--cacau); }
+    .tabela td:last-child { padding-right: 0; }
+    .tabela .num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .tabela .nao { color: var(--cacau); }
+
+    /* Versões do logotipo */
+    .versoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
+    .versao figure { margin: 0; }
+    .versao .palco { height: 260px; border-radius: var(--raio-lg); display: grid; place-items: center; padding: 32px; }
+    .versao .palco img { max-height: 100%; width: auto; max-width: 84%; }
+    .versao .palco.claro { background: var(--pergaminho-claro, #fbf8f2); outline: 1px solid rgba(43, 29, 22, 0.12); outline-offset: -1px; }
+    .versao .palco.torra { background: var(--torra); }
+    .versao .palco.mel { background: var(--mel); }
+    .versao figcaption { margin-top: 16px; }
+    .versao figcaption strong { display: block; font: 600 18px/26px var(--fonte-texto); }
+    .versao figcaption span { color: var(--cacau); font-size: 15px; line-height: 22px; }
+
+    /* Área de proteção */
+    .protecao-moldura { display: inline-block; position: relative; padding: 32px; border: 1px dashed var(--torra); background: rgba(217, 164, 65, 0.16); }
+    .protecao-moldura img { display: block; width: 520px; outline: 1px solid rgba(184, 55, 44, 0.55); outline-offset: 0; }
+    .protecao-moldura .x { position: absolute; font: 600 16px/1 var(--fonte-texto); color: var(--torra); }
+    .protecao-moldura .x.topo { top: 8px; left: 50%; transform: translateX(-50%); }
+    .protecao-moldura .x.base { bottom: 8px; left: 50%; transform: translateX(-50%); }
+    .protecao-moldura .x.esq { left: 12px; top: 50%; transform: translateY(-50%); }
+    .protecao-moldura .x.dir { right: 12px; top: 50%; transform: translateY(-50%); }
+
+    /* Usos incorretos */
+    .erros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+    .erro figure { margin: 0; }
+    .erro .palco { height: 168px; border-radius: var(--raio-md); background: var(--pergaminho-claro, #fbf8f2); display: grid; place-items: center; overflow: hidden; }
+    .erro .palco img { width: 240px; }
+    .erro .palco.baixo { background: var(--verde-cafe); }
+    .erro .palco.baixo img { width: 240px; }
+    .erro.esticado img { transform: scaleX(1.5); }
+    .erro.girado img { transform: rotate(-12deg); }
+    .erro.sombreado img { filter: drop-shadow(6px 8px 6px rgba(0, 0, 0, 0.5)); }
+    .erro.recolorido img { filter: hue-rotate(160deg) saturate(1.8); }
+    .erro figcaption { margin-top: 14px; font-size: 15px; line-height: 22px; color: var(--cacau); }
+    .erro figcaption strong { display: block; font: 600 16px/22px var(--fonte-texto); color: var(--torra); }
+    .fonte-trocada { display: flex; align-items: center; gap: 12px; }
+    .fonte-trocada img { width: 64px; }
+    .fonte-trocada span { font: 700 56px/1 Arial, Helvetica, sans-serif; color: var(--torra); letter-spacing: -0.02em; }
+
+    /* Cores */
+    .cores { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+    .cores.escala { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+    .cor .amostra { height: 128px; border-radius: var(--raio-md); margin-bottom: 16px; outline: 1px solid rgba(43, 29, 22, 0.14); outline-offset: -1px; }
+    .cor h4 { font-size: 22px; line-height: 28px; }
+    .cor p { font-size: 14px; line-height: 20px; color: var(--cacau); margin: 8px 0 0; }
+    .cor dl { margin: 12px 0 0; display: grid; grid-template-columns: 44px 1fr; gap: 4px 8px; font-size: 14px; line-height: 20px; }
+    .cor dt { color: var(--cacau); }
+    .cor dd { margin: 0; font-variant-numeric: tabular-nums; }
+    .proporcao { display: flex; height: 56px; border-radius: var(--raio-md); overflow: hidden; outline: 1px solid rgba(43, 29, 22, 0.14); outline-offset: -1px; }
+    .proporcao span { display: block; height: 100%; }
+    .legenda-proporcao { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; font-size: 14px; line-height: 20px; color: var(--cacau); }
+
+    /* Tipografia */
+    .especimes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .especime { background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-lg); padding: 40px; }
+    .especime .aa { display: block; font-size: 128px; line-height: 1; margin-bottom: 24px; }
+    .especime--titulo .aa { font-family: var(--fonte-titulo); font-weight: 600; font-variation-settings: "SOFT" 100, "WONK" 0; }
+    .especime--texto .aa { font-family: var(--fonte-texto); font-weight: 600; letter-spacing: -0.02em; }
+    .especime h4 { margin-bottom: 8px; }
+    .especime p { font-size: 16px; line-height: 26px; margin: 0; }
+    .caracteres { font-size: 17px; line-height: 30px; color: var(--cacau); margin: 24px 0 0; max-width: none; word-break: break-word; }
+    .amostra-hierarquia { background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-lg); padding: 56px; }
+    .amostra-hierarquia .rotulo { color: var(--cacau); display: block; margin-bottom: 16px; }
+    .amostra-hierarquia h2 { margin-bottom: 20px; }
+    .amostra-hierarquia .lead { margin: 0 0 20px; }
+    .amostra-hierarquia p { margin: 0 0 16px; }
+    .amostra-hierarquia .legenda { display: block; }
+    .regras { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+    .regras li { position: relative; padding-left: 28px; max-width: 64ch; }
+    .regras li::before { content: ""; position: absolute; left: 0; top: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--cereja); }
+
+    /* Sistema gráfico */
+    .escala-grande { display: flex; gap: 32px; align-items: flex-end; flex-wrap: wrap; }
+    .escala-grande > div { display: grid; justify-items: center; gap: 12px; font: 500 15px/20px var(--fonte-texto); }
+    .escala-grande .nivel { --tam: 64px; --borda: 3px; }
+    .malha { height: 220px; border-radius: var(--raio-lg); background-color: var(--pergaminho); position: relative; display: flex; align-items: flex-end; padding: 28px; }
+    .malha .cartao { max-width: 340px; }
+    .marcadores { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .marcadores li { position: relative; padding-left: 28px; max-width: 64ch; }
+    .marcadores li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--cereja); }
+    .grade-visual { background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-lg); padding: 40px; }
+    .colunas { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; height: 140px; margin-bottom: 40px; }
+    .colunas span { background: var(--verde-cafe); border-radius: 4px; opacity: 0.85; }
+    .espacos { display: grid; gap: 14px; }
+    .espacos div { display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: 16px; font-size: 14px; line-height: 20px; color: var(--cacau); }
+    .espacos i { display: block; height: 16px; background: var(--verde-folha); border-radius: 3px; }
+    .raios { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .raios div { display: grid; gap: 14px; font-size: 14px; line-height: 20px; color: var(--cacau); }
+    .raios i { display: block; height: 120px; background: var(--torra); }
+    .icones { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+    .icone { background: var(--pergaminho-claro, #fbf8f2); border-radius: var(--raio-md); padding: 28px 12px 20px; display: grid; justify-items: center; gap: 14px; text-align: center; font-size: 14px; line-height: 20px; }
+    .icone svg { width: 48px; height: 48px; fill: none; stroke: var(--torra); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .icone.cereja svg { stroke: var(--cereja); }
+
+    /* Aplicações */
+    .aplicacoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; align-items: start; }
+    .aplicacoes figure { margin: 0; }
+    .aplicacoes img { display: block; width: 100%; height: auto; border-radius: var(--raio-md); }
+    .aplicacoes figcaption { margin-top: 14px; font-size: 15px; line-height: 22px; color: var(--cacau); }
+    .aplicacoes .largo { grid-column: 1 / -1; }
+
+    /* Código */
+    pre { background: var(--torra); color: var(--pergaminho); padding: 28px 32px; border-radius: var(--raio-md); overflow-x: auto; font: 400 15px/24px ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; margin: 0; }
+    code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.92em; }
+
+    /* Rodapé */
+    .rodape-manual { background: var(--torra); color: var(--pergaminho); padding: 80px 0; margin-top: 120px; }
+    .rodape-manual p { color: var(--verde-cafe); max-width: 70ch; margin: 0; font-size: 15px; line-height: 24px; }
+
+    @media (max-width: 960px) {
+      .pagina { padding: 0 24px; }
+      .capa { padding: 40px 24px; }
+      .capa h1 { font-size: 56px; line-height: 60px; }
+      .sumario ol, .versoes, .erros, .cores, .cores.escala, .especimes, .trio, .icones, .raios, .aplicacoes, .grade-visual-dup { grid-template-columns: 1fr; }
+      .secao { grid-template-columns: 1fr; gap: 32px; padding: 80px 0; }
+      .amostra-hierarquia, .grade-visual { padding: 28px; }
+      .colunas { grid-template-columns: repeat(6, minmax(0, 1fr)); height: 96px; }
+      .especime .aa { font-size: 96px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CAPA -->
+  <header class="capa">
+    <img class="capa-logo" src="../logo/logo-principal-negativo.svg" alt="Ponto Torrefação">
+    <div>
+      <h1>Manual de identidade visual</h1>
+      <p class="lead">Ponto Torrefação. Versão 1.0, outubro de 2026.</p>
+    </div>
+    <div class="capa-rodape">
+      <div class="escala escala--negativa" style="--tam:34px;--borda:2px;" aria-label="Escala de torra, do claro ao escuro">
+        <span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5 cheio"></span>
+      </div>
+      <p>Projeto de demonstração. Marca, pessoas, contatos, produtos e preços são fictícios.</p>
+    </div>
+  </header>
+
+  <main class="pagina">
+
+    <!-- SUMÁRIO -->
+    <nav class="sumario" aria-labelledby="sumario-titulo">
+      <h2 id="sumario-titulo">Sumário</h2>
+      <ol>
+        <li><a href="#essencia"><span>01</span>Essência</a></li>
+        <li><a href="#conceito"><span>02</span>Conceito</a></li>
+        <li><a href="#logotipo"><span>03</span>Logotipo</a></li>
+        <li><a href="#cores"><span>04</span>Cores</a></li>
+        <li><a href="#tipografia"><span>05</span>Tipografia</a></li>
+        <li><a href="#sistema"><span>06</span>Sistema gráfico</a></li>
+        <li><a href="#aplicacoes"><span>07</span>Aplicações</a></li>
+        <li><a href="#codigo"><span>08</span>Código e tokens</a></li>
+        <li><a href="#entregaveis"><span>09</span>Entregáveis</a></li>
+      </ol>
+    </nav>
+
+    <!-- 01 ESSÊNCIA -->
+    <section class="secao" id="essencia">
+      <header>
+        <span class="rotulo">01</span>
+        <h2>Essência</h2>
+        <p class="lead">Precisão no ponto exato, com acolhimento para quem prepara o café em casa.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Posicionamento</h3>
+          <p>Para quem prepara café em casa com cuidado, a Ponto transforma a torra em precisão. Cada saco mostra a origem, o perfil de torra e uma receita que funciona na primeira tentativa.</p>
+        </div>
+        <div>
+          <h3>Personalidade</h3>
+          <div class="trio">
+            <article class="cartao">
+              <h4>Precisa</h4>
+              <p>Mede a torra, indica o perfil e explica o porquê. Sem promessas vagas.</p>
+            </article>
+            <article class="cartao">
+              <h4>Acolhedora</h4>
+              <p>Fala com quem está começando, sem tratar ninguém como quem não sabe nada.</p>
+            </article>
+            <article class="cartao">
+              <h4>Curiosa</h4>
+              <p>Convida a comparar lotes e a descobrir o próprio ponto de torra.</p>
+            </article>
+          </div>
+        </div>
+        <div>
+          <h3>Não somos</h3>
+          <p>Pretensiosos, técnicos demais ou nostálgicos de forma forçada. Nada de carimbo, papel kraft e frases de efeito sobre experiências sensoriais.</p>
+        </div>
+        <div>
+          <h3>Tom de voz</h3>
+          <table class="tabela">
+            <thead>
+              <tr><th scope="col">Dizemos</th><th scope="col">Não dizemos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Torra média: caramelo, cacau e final doce.</td><td class="nao">Uma experiência sensorial inesquecível.</td></tr>
+              <tr><td>Moa na hora e use 15 g para cada 250 ml de água.</td><td class="nao">Sinta-se livre para experimentar!</td></tr>
+              <tr><td>Não sabe por onde começar? Comece pela torra média.</td><td class="nao">Descubra o universo do café.</td></tr>
+              <tr><td>Este lote tem notas de ameixa. Você vai reconhecer.</td><td class="nao">Um café revolucionário para o seu dia.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 CONCEITO -->
+    <section class="secao" id="conceito">
+      <header>
+        <span class="rotulo">02</span>
+        <h2>Conceito</h2>
+        <p class="lead">A marca é uma escala de torra com o ponto marcado.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <p>Ponto é o instante em que o grão termina a torra. Toda a identidade parte dessa ideia: medir com cuidado e escolher o momento certo.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:center;">
+          <img src="../logo/simbolo.svg" alt="Símbolo da marca" style="width:260px;">
+          <dl style="margin:0;display:grid;gap:28px;">
+            <div><dt class="rotulo">Arco</dt><dd style="margin:6px 0 0;max-width:52ch;">A escala de torra, do claro ao escuro. São 270 graus de arco, abertos embaixo, como um instrumento de medição.</dd></div>
+            <div><dt class="rotulo">Ponto</dt><dd style="margin:6px 0 0;max-width:52ch;">A torra ideal, marcada sobre a escala. A cor Cereja destaca o momento de decidir.</dd></div>
+            <div><dt class="rotulo">Recorte</dt><dd style="margin:6px 0 0;max-width:52ch;">O espaço ao redor do ponto separa o marcador da escala. Assim ele se lê em qualquer cor, inclusive em uma só.</dd></div>
+          </dl>
+        </div>
+        <div>
+          <p>O símbolo nasce da escala de torra usada nas embalagens e no site. Quando a marca cresce, o ponto pode aparecer sozinho, como marcador de destaque.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 LOGOTIPO -->
+    <section class="secao" id="logotipo">
+      <header>
+        <span class="rotulo">03</span>
+        <h2>Logotipo</h2>
+        <p class="lead">Um símbolo e uma palavra. A palavra é “ponto” em Fraunces, convertida em curvas, para que o arquivo não dependa de fontes instaladas.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Versões</h3>
+          <div class="versoes">
+            <div class="versao">
+              <figure>
+                <div class="palco claro"><img src="../logo/logo-principal.svg" alt="Logotipo principal"></div>
+                <figcaption><strong>Principal</strong><span>Use em fundos claros. É a versão padrão.</span></figcaption>
+              </figure>
+            </div>
+            <div class="versao">
+              <figure>
+                <div class="palco torra"><img src="../logo/logo-principal-negativo.svg" alt="Logotipo negativo"></div>
+                <figcaption><strong>Negativo</strong><span>Para fundos escuros. O ponto passa a Mel, com contraste de 7,24:1.</span></figcaption>
+              </figure>
+            </div>
+            <div class="versao">
+              <figure>
+                <div class="palco claro"><img src="../logo/logo-vertical.svg" alt="Logotipo vertical"></div>
+                <figcaption><strong>Vertical</strong><span>Para embalagens quadradas, selos e perfis de redes sociais.</span></figcaption>
+              </figure>
+            </div>
+            <div class="versao">
+              <figure>
+                <div class="palco claro"><img src="../logo/simbolo.svg" alt="Símbolo"></div>
+                <figcaption><strong>Símbolo</strong><span>Avatar, favicon e selos. Sem o logotipo, só quando a marca já aparece na peça.</span></figcaption>
+              </figure>
+            </div>
+            <div class="versao">
+              <figure>
+                <div class="palco mel"><img src="../logo/logo-monocromatico-torra.svg" alt="Logotipo monocromático"></div>
+                <figcaption><strong>Monocromático</strong><span>Uma cor só, para gravação, carimbo e bordado. Torra sobre Mel tem 7,24:1.</span></figcaption>
+              </figure>
+            </div>
+            <div class="versao">
+              <figure>
+                <div class="palco claro"><img src="../logo/logotipo.svg" alt="Logotipo, só o nome"></div>
+                <figcaption><strong>Logotipo</strong><span>Só o nome, quando o símbolo já aparece na mesma peça.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Área de proteção</h3>
+          <p>Mantenha livre a distância x em todos os lados. O x equivale ao diâmetro do ponto do símbolo, cerca de 22% da altura do logotipo.</p>
+          <figure style="margin:32px 0 0;">
+            <div class="protecao-moldura">
+              <img src="../logo/logo-principal.svg" alt="Logotipo principal com área de proteção">
+              <span class="x topo">x</span><span class="x base">x</span><span class="x esq">x</span><span class="x dir">x</span>
+            </div>
+          </figure>
+        </div>
+
+        <div>
+          <h3>Tamanho mínimo</h3>
+          <table class="tabela">
+            <thead><tr><th scope="col">Versão</th><th scope="col">Digital</th><th scope="col">Impresso</th></tr></thead>
+            <tbody>
+              <tr><td>Principal</td><td class="num">120 px de largura</td><td class="num">30 mm de largura</td></tr>
+              <tr><td>Vertical</td><td class="num">96 px de largura</td><td class="num">24 mm de largura</td></tr>
+              <tr><td>Logotipo</td><td class="num">96 px de largura</td><td class="num">24 mm de largura</td></tr>
+              <tr><td>Símbolo</td><td class="num">24 px de altura</td><td class="num">6 mm de altura</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Usos incorretos</h3>
+          <p>Estas combinações não são aprovadas.</p>
+          <div class="erros" style="margin-top:32px;">
+            <div class="erro esticado">
+              <figure>
+                <div class="palco"><img src="../logo/logo-principal.svg" alt="Logotipo esticado"></div>
+                <figcaption><strong>Não estique.</strong>Mantenha a proporção original.</figcaption>
+              </figure>
+            </div>
+            <div class="erro girado">
+              <figure>
+                <div class="palco"><img src="../logo/logo-principal.svg" alt="Logotipo girado"></div>
+                <figcaption><strong>Não gire.</strong>O logotipo fica sempre na horizontal.</figcaption>
+              </figure>
+            </div>
+            <div class="erro sombreado">
+              <figure>
+                <div class="palco"><img src="../logo/logo-principal.svg" alt="Logotipo com sombra"></div>
+                <figcaption><strong>Não use sombra.</strong>A marca não usa sombras nem brilhos.</figcaption>
+              </figure>
+            </div>
+            <div class="erro recolorido">
+              <figure>
+                <div class="palco"><img src="../logo/logo-principal.svg" alt="Logotipo com cores fora da paleta"></div>
+                <figcaption><strong>Não troque as cores.</strong>Use só a paleta e as versões aprovadas.</figcaption>
+              </figure>
+            </div>
+            <div class="erro">
+              <figure>
+                <div class="palco baixo"><img src="../logo/logo-principal-negativo.svg" alt="Logotipo negativo sobre fundo de baixo contraste"></div>
+                <figcaption><strong>Não use em fundo de baixo contraste.</strong>O negativo sobre Verde Café quase desaparece.</figcaption>
+              </figure>
+            </div>
+            <div class="erro">
+              <figure>
+                <div class="palco">
+                  <div class="fonte-trocada"><img src="../logo/simbolo.svg" alt=""><span>ponto</span></div>
+                </div>
+                <figcaption><strong>Não recrie com outra fonte.</strong>A palavra é desenhada, não digitada.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 CORES -->
+    <section class="secao" id="cores">
+      <header>
+        <span class="rotulo">04</span>
+        <h2>Cores</h2>
+        <p class="lead">Cinco cores de base, uma escala de torra e um acento. A paleta sai do café: o verde do grão cru, a cereja, a torra e a casca fina do grão.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Paleta de base</h3>
+          <div class="cores">
+            <article class="cor">
+              <div class="amostra" style="background:#2b1d16"></div>
+              <h4>Torra</h4>
+              <p>Texto e fundos escuros.</p>
+              <dl><dt>HEX</dt><dd>#2B1D16</dd><dt>RGB</dt><dd>43 29 22</dd><dt>CMYK</dt><dd>0 33 49 83</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#f3ede2"></div>
+              <h4>Pergaminho</h4>
+              <p>Fundo principal.</p>
+              <dl><dt>HEX</dt><dd>#F3EDE2</dd><dt>RGB</dt><dd>243 237 226</dd><dt>CMYK</dt><dd>0 2 7 5</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#b8372c"></div>
+              <h4>Cereja</h4>
+              <p>Destaque, ações e o ponto.</p>
+              <dl><dt>HEX</dt><dd>#B8372C</dd><dt>RGB</dt><dd>184 55 44</dd><dt>CMYK</dt><dd>0 70 76 28</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#d9a441"></div>
+              <h4>Mel</h4>
+              <p>Destaque sobre fundos escuros.</p>
+              <dl><dt>HEX</dt><dd>#D9A441</dd><dt>RGB</dt><dd>217 164 65</dd><dt>CMYK</dt><dd>0 24 70 15</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#c9d2b6"></div>
+              <h4>Verde Café</h4>
+              <p>Embalagens e blocos de cor.</p>
+              <dl><dt>HEX</dt><dd>#C9D2B6</dd><dt>RGB</dt><dd>201 210 182</dd><dt>CMYK</dt><dd>4 0 13 18</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#4c5e3f"></div>
+              <h4>Verde Folha</h4>
+              <p>Textos de apoio e detalhes.</p>
+              <dl><dt>HEX</dt><dd>#4C5E3F</dd><dt>RGB</dt><dd>76 94 63</dd><dt>CMYK</dt><dd>19 0 33 63</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#6e5c50"></div>
+              <h4>Cacau</h4>
+              <p>Texto secundário.</p>
+              <dl><dt>HEX</dt><dd>#6E5C50</dd><dt>RGB</dt><dd>110 92 80</dd><dt>CMYK</dt><dd>0 16 27 57</dd></dl>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3>Escala de torra</h3>
+          <div class="cores escala">
+            <article class="cor">
+              <div class="amostra" style="background:#ebc97f"></div>
+              <h4>Claro</h4>
+              <dl><dt>HEX</dt><dd>#EBC97F</dd><dt>RGB</dt><dd>235 201 127</dd><dt>CMYK</dt><dd>0 14 46 8</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#d9a441"></div>
+              <h4>Médio-claro</h4>
+              <dl><dt>HEX</dt><dd>#D9A441</dd><dt>RGB</dt><dd>217 164 65</dd><dt>CMYK</dt><dd>0 24 70 15</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#b9773a"></div>
+              <h4>Médio</h4>
+              <dl><dt>HEX</dt><dd>#B9773A</dd><dt>RGB</dt><dd>185 119 58</dd><dt>CMYK</dt><dd>0 36 69 27</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#7e4b2a"></div>
+              <h4>Médio-escuro</h4>
+              <dl><dt>HEX</dt><dd>#7E4B2A</dd><dt>RGB</dt><dd>126 75 42</dd><dt>CMYK</dt><dd>0 40 67 51</dd></dl>
+            </article>
+            <article class="cor">
+              <div class="amostra" style="background:#2b1d16"></div>
+              <h4>Escuro</h4>
+              <dl><dt>HEX</dt><dd>#2B1D16</dd><dt>RGB</dt><dd>43 29 22</dd><dt>CMYK</dt><dd>0 33 49 83</dd></dl>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3>Proporção de uso</h3>
+          <div class="proporcao" role="img" aria-label="Pergaminho 40%, Torra 20%, Verde Café 20%, Mel 10%, Cereja 6%, Verde Folha 4%">
+            <span style="width:40%;background:#f3ede2"></span><span style="width:20%;background:#2b1d16"></span><span style="width:20%;background:#c9d2b6"></span><span style="width:10%;background:#d9a441"></span><span style="width:6%;background:#b8372c"></span><span style="width:4%;background:#4c5e3f"></span>
+          </div>
+          <div class="legenda-proporcao">
+            <span>Pergaminho 40%</span><span>Torra 20%</span><span>Verde Café 20%</span><span>Mel 10%</span><span>Cereja 6%</span><span>Verde Folha 4%</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contraste</h3>
+          <table class="tabela">
+            <thead><tr><th scope="col">Par (texto sobre fundo)</th><th scope="col">Razão</th><th scope="col">Uso</th></tr></thead>
+            <tbody>
+              <tr><td>Torra sobre Pergaminho</td><td class="num">13,97:1</td><td>Texto em qualquer tamanho (AAA)</td></tr>
+              <tr><td>Pergaminho sobre Torra</td><td class="num">13,97:1</td><td>Texto em fundos escuros (AAA)</td></tr>
+              <tr><td>Torra sobre Mel</td><td class="num">7,24:1</td><td>Destaques e botões (AAA)</td></tr>
+              <tr><td>Torra sobre Verde Café</td><td class="num">10,37:1</td><td>Texto sobre embalagens (AAA)</td></tr>
+              <tr><td>Verde Folha sobre Pergaminho</td><td class="num">6,05:1</td><td>Texto de apoio (AA)</td></tr>
+              <tr><td>Cacau sobre Pergaminho</td><td class="num">5,45:1</td><td>Texto secundário (AA)</td></tr>
+              <tr><td>Pergaminho sobre Cereja</td><td class="num">4,98:1</td><td>Botões e textos (AA)</td></tr>
+              <tr><td>Cereja sobre Pergaminho</td><td class="num">4,98:1</td><td>Destaques e o ponto (AA)</td></tr>
+              <tr><td>Cacau sobre Verde Café</td><td class="num">4,04:1</td><td>Somente texto grande (AA para texto grande)</td></tr>
+              <tr><td>Cereja sobre Torra</td><td class="num">2,81:1</td><td class="nao">Não usar, nem em texto nem em gráfico</td></tr>
+              <tr><td>Mel sobre Pergaminho</td><td class="num">1,93:1</td><td class="nao">Não usar como texto nem como informação gráfica</td></tr>
+              <tr><td>Mel sobre Verde Café</td><td class="num">1,43:1</td><td class="nao">Não usar</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:24px;font-size:15px;line-height:24px;color:var(--cacau);">Razões calculadas pela fórmula WCAG 2.x. AA exige 4,5:1 para texto normal e 3:1 para texto grande e gráficos. AAA exige 7:1 para texto normal. O pergaminho claro, #FBF8F2, é tom de superfície para cards e blocos. Não é cor de marca.</p>
+          <p style="font-size:15px;line-height:24px;color:var(--cacau);">Os valores CMYK são conversões aproximadas, para referência. Faça prova de cor com a gráfica antes de imprimir. Esta identidade não define Pantone: se o cliente pedir, meça o catálogo físico na fase de produção.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 TIPOGRAFIA -->
+    <section class="secao" id="tipografia">
+      <header>
+        <span class="rotulo">05</span>
+        <h2>Tipografia</h2>
+        <p class="lead">Fraunces dá personalidade aos títulos. Instrument Sans organiza textos, interfaces e legendas.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Famílias</h3>
+          <div class="especimes">
+            <article class="especime especime--titulo">
+              <span class="aa" aria-hidden="true">Aa</span>
+              <h4>Fraunces</h4>
+              <p>Títulos, destaques e logotipo. Peso 600, com SOFT 100 e WONK 0.</p>
+              <p class="caracteres">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ÁÉÍÓÚÂÊÔÃÕÇ</p>
+            </article>
+            <article class="especime especime--texto">
+              <span class="aa" aria-hidden="true">Aa</span>
+              <h4>Instrument Sans</h4>
+              <p>Textos, interfaces, legendas e embalagens. Pesos 400 e 600.</p>
+              <p class="caracteres">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 ÁÉÍÓÚÂÊÔÃÕÇ</p>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3>Escala</h3>
+          <table class="tabela">
+            <thead><tr><th scope="col">Nível</th><th scope="col">Família e peso</th><th scope="col">Tamanho e entrelinha</th><th scope="col">Uso</th></tr></thead>
+            <tbody>
+              <tr><td>Display</td><td>Fraunces 600</td><td class="num">72 / 76 px</td><td>Capas e títulos principais.</td></tr>
+              <tr><td>Título 2</td><td>Fraunces 600</td><td class="num">49 / 54 px</td><td>Títulos de seção.</td></tr>
+              <tr><td>Título 3</td><td>Fraunces 600</td><td class="num">31 / 36 px</td><td>Subtítulos e títulos de cartão.</td></tr>
+              <tr><td>Título 4</td><td>Fraunces 600</td><td class="num">25 / 30 px</td><td>Títulos de item e de produto.</td></tr>
+              <tr><td>Lead</td><td>Instrument Sans 400</td><td class="num">20 / 30 px</td><td>Introdução de página e de seção.</td></tr>
+              <tr><td>Corpo</td><td>Instrument Sans 400</td><td class="num">16 / 26 px</td><td>Textos corridos, descrições e formulários.</td></tr>
+              <tr><td>Rótulo</td><td>Instrument Sans 600</td><td class="num">14 / 20 px</td><td>Rótulos, categorias e botões.</td></tr>
+              <tr><td>Legenda</td><td>Instrument Sans 400</td><td class="num">13 / 18 px</td><td>Legendas, créditos e notas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Regras</h3>
+          <ul class="regras">
+            <li>Títulos em Fraunces 600, com SOFT 100 e WONK 0. Não use peso 400 em títulos.</li>
+            <li>Textos, interfaces e legendas em Instrument Sans, nos pesos 400 e 600.</li>
+            <li>Use caixa de frase. Não use caixa-alta em rótulos nem em botões.</li>
+            <li>Entrelinha do corpo de texto em torno de 1,6 (26 px para 16 px). Não justifique textos.</li>
+            <li>Fallbacks: Georgia para títulos e Arial para textos, quando as fontes não puderem ser carregadas.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Hierarquia na prática</h3>
+          <div class="amostra-hierarquia">
+            <span class="rotulo">Torra média</span>
+            <h2>Caramelo, cacau e final doce.</h2>
+            <p class="lead">Um café para quem está começando a comparar lotes e quer acertar na primeira xícara.</p>
+            <p>Cada saco traz a origem, o perfil de torra e uma receita de preparo. O corpo de texto fica em 16 px, com entrelinha de 26 px.</p>
+            <span class="legenda">Legenda: altitude, variedade e data de torra.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 SISTEMA GRÁFICO -->
+    <section class="secao" id="sistema">
+      <header>
+        <span class="rotulo">06</span>
+        <h2>Sistema gráfico</h2>
+        <p class="lead">Elementos que se repetem em todas as peças e dão ritmo à marca.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Escala de torra</h3>
+          <p>A escala é o módulo principal da marca. Cinco níveis, do Claro ao Escuro, com o preenchimento progressivo mostrando a intensidade da torra. Use-a como informação de apoio em embalagens, cartões e no site.</p>
+          <div class="escala-niveis" role="img" aria-label="Escala de torra com cinco níveis, do Claro ao Escuro" style="margin-top:40px;display:grid;grid-template-columns:auto auto;gap:20px 32px;align-items:center;justify-content:start;font:500 15px/20px var(--fonte-texto);">
+  <span>Claro</span><span class="escala" style="--tam:28px;--borda:2px;"><span class="nivel n1 cheio"></span><span class="nivel n2"></span><span class="nivel n3"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>
+  <span>Médio-claro</span><span class="escala" style="--tam:28px;--borda:2px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>
+  <span>Médio</span><span class="escala" style="--tam:28px;--borda:2px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4"></span><span class="nivel n5"></span></span>
+  <span>Médio-escuro</span><span class="escala" style="--tam:28px;--borda:2px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5"></span></span>
+  <span>Escuro</span><span class="escala" style="--tam:28px;--borda:2px;"><span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4 cheio"></span><span class="nivel n5 cheio"></span></span>
+</div>
+        </div>
+
+        <div>
+          <h3>Malha de pontos</h3>
+          <p>Textura de apoio para fundos lisos, como capas de sacos e posts. Não coloque a malha atrás de texto corrido.</p>
+          <div class="malha malha-pontos" style="margin-top:32px;">
+            <div class="cartao">
+              <h4>Torra média</h4>
+              <p>Caramelo, cacau e final doce.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Marcador</h3>
+          <p>Em listas e destaques, o marcador é um ponto Cereja, a mesma forma do ponto da marca. Ele substitui bolinhas e travessões.</p>
+          <ul class="marcadores" style="margin-top:32px;">
+            <li>Origem, altitude e variedade em cada saco.</li>
+            <li>Perfil de torra indicado na escala de cinco níveis.</li>
+            <li>Receita de preparo na primeira página da embalagem.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Grade e espaçamento</h3>
+          <div class="grade-visual">
+            <div class="colunas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="espacos">
+              <div><span>8 px</span><i style="width:8px"></i></div>
+              <div><span>16 px</span><i style="width:16px"></i></div>
+              <div><span>24 px</span><i style="width:24px"></i></div>
+              <div><span>32 px</span><i style="width:32px"></i></div>
+              <div><span>48 px</span><i style="width:48px"></i></div>
+              <div><span>64 px</span><i style="width:64px"></i></div>
+              <div><span>96 px</span><i style="width:96px"></i></div>
+            </div>
+          </div>
+          <p style="margin-top:24px;">Grade de 12 colunas, calha de 24 px, margens de 64 px no desktop e 24 px no celular, com largura máxima de 1200 px. Os espaços seguem a escala de 8 px.</p>
+        </div>
+
+        <div>
+          <h3>Raios e superfícies</h3>
+          <div class="raios">
+            <div><i style="border-radius:6px"></i>Pequeno, 6 px. Campos e etiquetas.</div>
+            <div><i style="border-radius:16px"></i>Médio, 16 px. Cartões e imagens.</div>
+            <div><i style="border-radius:28px"></i>Grande, 28 px. Painéis de destaque.</div>
+            <div><i style="border-radius:999px"></i>Pílula, 999 px. Botões e selos.</div>
+          </div>
+          <p style="margin-top:24px;">As superfícies são tonais: use Pergaminho claro sobre Pergaminho, ou Verde Café sobre Pergaminho. Não use sombras.</p>
+        </div>
+
+        <div>
+          <h3>Iconografia</h3>
+          <p>Seis ícones em traço de 1,6 px, sobre grade de 24 px, com cantos arredondados. A cor padrão é Torra. Use Cereja para um único destaque por peça.</p>
+          <div class="icones" style="margin-top:32px;">
+            <div class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.5" ry="9"/><path d="M12 3c-2 3-2 6 0 9s2 6 0 9"/></svg>Grão</div>
+            <div class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.5 8.5V19l-3 1.5v-7z"/></svg>Coador</div>
+            <div class="icone cereja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9h11v8.5a3.5 3.5 0 0 1-3.5 3.5h-4a3.5 3.5 0 0 1-3.5-3.5z"/><path d="M12 9V3.5"/><path d="M9 3.5h6"/></svg>Prensa</div>
+            <div class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5h12v4.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16.5 11.5h1.5a2.5 2.5 0 0 1 0 5h-1.5"/><path d="M8 3.5c-.8 1.2.8 2.2 0 3.6M12 3.5c-.8 1.2.8 2.2 0 3.6"/></svg>Xícara</div>
+            <div class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5"/><path d="M12 12v9"/></svg>Entrega</div>
+            <div class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 17c1.8-3.6 2.8-5.2 3.8-3.2.8 1.6-.8 3.6.4 2.9 1.2-.7 2.5-4.6 3.9-4.2 1.1.3-.6 3.5.6 3.2 1.2-.3 2.6-2.6 3.6-3.5"/><path d="M3.5 20.5h17"/></svg>Assinatura</div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Fotografia</h3>
+          <div class="trio">
+            <article class="cartao">
+              <h4>Luz</h4>
+              <p>Luz lateral natural, de janela. Sombras suaves e contraste baixo.</p>
+            </article>
+            <article class="cartao">
+              <h4>Cena</h4>
+              <p>Madeira escura, grão em macro e mãos em ação. Fundo Pergaminho ou Torra.</p>
+            </article>
+            <article class="cartao">
+              <h4>Evite</h4>
+              <p>Baristas de banco de imagem, sorrisos forçados e produto sobre fundo branco.</p>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3>Ilustração</h3>
+          <p>Traço simples, de 1,6 px, sem preenchimento e com cantos arredondados. A ilustração ocupa o lugar da fotografia quando o assunto é processo, nunca decora o texto. Para processos, use a escala de torra como fio condutor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 APLICAÇÕES -->
+    <section class="secao" id="aplicacoes">
+      <header>
+        <span class="rotulo">07</span>
+        <h2>Aplicações</h2>
+        <p class="lead">A marca aplicada nas peças que o cliente usa no dia a dia.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <p>Cada peça abaixo é uma exportação das aplicações em <code>aplicacoes/index.html</code>. Os arquivos em PNG ficam em <code>aplicacoes/png/</code>.</p>
+          <div class="aplicacoes" style="margin-top:40px;">
+            <figure>
+              <img src="../aplicacoes/png/cartao-frente.png" alt="Cartão de visita, frente, com fundo Torra e logotipo negativo" width="1050" height="600">
+              <figcaption>Cartão de visita, frente. Fundo Torra, logotipo negativo.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/cartao-verso.png" alt="Cartão de visita, verso, com a escala de torra" width="1050" height="600">
+              <figcaption>Cartão de visita, verso. Escala de torra como informação de apoio.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/saco-250g.png" alt="Saco de café de 250 gramas, com nome do lote e escala de torra" width="720" height="960">
+              <figcaption>Embalagem, saco de 250 g. Escala de torra indica o perfil.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/copo-luva.png" alt="Copo com luva, com o logotipo monocromático em Pergaminho sobre Cereja" width="760" height="760">
+              <figcaption>Copo com luva. Logotipo monocromático Pergaminho sobre Cereja (4,98:1).</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/post-1.png" alt="Post de feed com o título Sabor no ponto certo" width="1080" height="1080">
+              <figcaption>Post de feed, 1080 × 1080 px. Título em Fraunces sobre Pergaminho.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/post-2.png" alt="Post de feed sobre fundo Cereja, com o símbolo monocromático" width="1080" height="1080">
+              <figcaption>Post de feed, 1080 × 1080 px. Fundo Cereja com o símbolo monocromático.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/story.png" alt="Story vertical com o título Torra nova na casa" width="1080" height="1920">
+              <figcaption>Story, 1080 × 1920 px. Área segura de 96 px nas laterais.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/papel-timbrado.png" alt="Papel timbrado A4 com logotipo principal no topo e fio Mel no rodapé" width="794" height="1123">
+              <figcaption>Papel timbrado, A4. Logotipo principal no topo, rodapé com fio Mel.</figcaption>
+            </figure>
+            <figure>
+              <img src="../aplicacoes/png/assinatura-email.png" alt="Assinatura de e-mail com logotipo e dados de contato fictícios" width="560" height="176">
+              <figcaption>Assinatura de e-mail, 560 × 176 px, sobre branco.</figcaption>
+            </figure>
+            <figure class="largo">
+              <img src="../aplicacoes/png/site-home.png" alt="Primeira dobra da página inicial do site de demonstração" width="1440" height="760">
+              <figcaption>Site, primeira dobra da página inicial, 1440 × 760 px.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div>
+          <h3>Regras de aplicação</h3>
+          <ul class="marcadores">
+            <li>Use o logotipo principal sempre que houver espaço. A versão monocromática serve para gravação, carimbo e bordado.</li>
+            <li>Torra e Pergaminho dominam as peças. Cereja e Mel são destaques pontuais.</li>
+            <li>Cada peça tem uma ideia principal e no máximo uma escala de torra.</li>
+            <li>Mantenha a área de proteção do logotipo em todas as aplicações.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CÓDIGO E TOKENS -->
+    <section class="secao" id="codigo">
+      <header>
+        <span class="rotulo">08</span>
+        <h2>Código e tokens</h2>
+        <p class="lead">Os mesmos valores do manual, em formato para desenvolvimento e para produto digital.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Arquivos</h3>
+          <table class="tabela">
+            <thead><tr><th scope="col">Arquivo</th><th scope="col">Para que serve</th></tr></thead>
+            <tbody>
+              <tr><td><code>DESIGN.md</code></td><td>Fonte dos tokens, no formato DESIGN.md. Cores, tipografia, raios, espaços e componentes.</td></tr>
+              <tr><td><code>tokens/tokens.css</code></td><td>Variáveis CSS geradas a partir do DESIGN.md, com prefixo <code>ponto</code>.</td></tr>
+              <tr><td><code>brand/brand.css</code></td><td>Estilos de referência, usados neste manual e no site.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Variáveis CSS</h3>
+          <pre><code>:root {
+  --ponto-color-torra: #2b1d16;
+  --ponto-color-pergaminho: #f3ede2;
+  --ponto-color-cereja: #b8372c;
+  --ponto-color-mel: #d9a441;
+}</code></pre>
+        </div>
+
+        <div>
+          <h3>Como regenerar</h3>
+          <pre><code># Validar o DESIGN.md (0 erros esperados)
+npx @google/design.md lint DESIGN.md
+
+# Gerar as variáveis CSS
+npx @google/design.md export --format css-vars --prefix ponto DESIGN.md &gt; tokens/tokens.css</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 ENTREGÁVEIS -->
+    <section class="secao" id="entregaveis">
+      <header>
+        <span class="rotulo">09</span>
+        <h2>Entregáveis</h2>
+        <p class="lead">O que está pronto nesta versão, onde está cada arquivo e o que ainda depende do cliente.</p>
+      </header>
+      <div class="corpo">
+        <div>
+          <h3>Pronto nesta versão</h3>
+          <table class="tabela">
+            <thead><tr><th scope="col">Item</th><th scope="col">Onde está</th><th scope="col">Formato</th></tr></thead>
+            <tbody>
+              <tr><td>Logotipo, 10 variações</td><td><code>logo/</code> e <code>logo/png/</code></td><td>SVG e PNG de 2000 px</td></tr>
+              <tr><td>Paleta, escala de torra e contraste</td><td><code>DESIGN.md</code> e <code>tokens/</code></td><td>Markdown e CSS</td></tr>
+              <tr><td>Tipografia e licenças</td><td><code>fontes/</code></td><td>WOFF2, SIL OFL 1.1</td></tr>
+              <tr><td>Estilos de referência</td><td><code>brand/brand.css</code></td><td>CSS</td></tr>
+              <tr><td>Aplicações, 9 peças, e home do site</td><td><code>aplicacoes/</code> e <code>aplicacoes/png/</code></td><td>HTML e PNG</td></tr>
+              <tr><td>Manual e site de demonstração</td><td><code>manual/</code> e <code>site/</code></td><td>HTML</td></tr>
+              <tr><td>Briefing, escopo e fases</td><td><code>briefing.md</code> e <code>ESCOPO.md</code></td><td>Markdown</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Depende do cliente</h3>
+          <ul class="marcadores">
+            <li>Nome definitivo da marca. "Ponto" é um nome provisório de demonstração.</li>
+            <li>Textos, endereços, contatos, produtos e preços reais.</li>
+            <li>Prova de cor na gráfica. Os valores CMYK desta versão são aproximações matemáticas.</li>
+            <li>Equivalentes Pantone, que não foram verificados nesta versão.</li>
+            <li>Checagem de anterioridade e registro da marca.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape-manual">
+    <div class="pagina">
+      <p>Ponto Torrefação é uma marca fictícia, criada como projeto de demonstração. Nomes, pessoas, contatos, endereços, produtos e preços são fictícios. Fraunces e Instrument Sans são usadas sob a SIL Open Font License 1.1.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

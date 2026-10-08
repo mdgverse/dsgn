@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicações da marca, Ponto Torrefação</title>
+  <link rel="stylesheet" href="../brand/brand.css">
+  <style>
+    body { background: #e4e0d7; padding: 56px 48px 120px; }
+    .cabecalho { max-width: 880px; margin-bottom: 64px; }
+    .cabecalho p { color: var(--cacau); }
+    .grade { display: flex; flex-wrap: wrap; gap: 64px 48px; align-items: flex-start; }
+    .item { margin: 0; }
+    .item figcaption { margin-top: 16px; font-size: 14px; line-height: 20px; color: var(--cacau); }
+    .peca { margin: 0; position: relative; overflow: hidden; }
+    .nome-cartao { font: 600 46px/1.05 var(--fonte-titulo); font-variation-settings: "SOFT" 100, "WONK" 0; color: var(--torra); }
+    .cargo { font: 400 20px/28px var(--fonte-texto); color: var(--cacau); margin-top: 8px; }
+    .contato { font: 400 18px/28px var(--fonte-texto); color: var(--torra); }
+    .saco-origem { font: 600 58px/1 var(--fonte-titulo); font-variation-settings: "SOFT" 100, "WONK" 0; color: var(--pergaminho); margin: 84px 0 16px; text-align: center; }
+    .saco-notas { font: 400 24px/32px var(--fonte-texto); color: var(--verde-cafe); text-align: center; margin: 0; }
+    .titulo-post { font-variation-settings: "SOFT" 100, "WONK" 0; letter-spacing: -0.02em; }
+    .corpo-papel p { font-size: 16px; line-height: 26px; color: var(--torra); margin-bottom: 18px; }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <h2>Aplicações</h2>
+    <p>Peças de referência com o sistema aplicado. Cada peça com o atributo data-export é exportada como PNG para aplicacoes/png/ pelo script build/exportar.mjs.</p>
+  </header>
+
+  <main class="grade">
+
+    <div class="item">
+      <figure class="peca" data-export="cartao-frente" data-escala="2" style="width:1050px;height:600px;background:var(--torra);display:grid;place-items:center;text-align:center;">
+        <div>
+          <img src="../logo/logo-principal-negativo.svg" alt="Logotipo Ponto, versão negativa" style="width:540px;margin:0 auto;">
+          <p class="texto-mel" style="margin:40px 0 0;font-size:22px;line-height:30px;max-width:none;">Torrefação de cafés especiais</p>
+        </div>
+      </figure>
+      <figcaption>Cartão de visita, frente. Fundo Torra, logotipo negativo.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="cartao-verso" data-escala="2" style="width:1050px;height:600px;background:var(--pergaminho);">
+        <img src="../logo/simbolo.svg" alt="" style="position:absolute;right:80px;top:72px;width:84px;">
+        <div style="position:absolute;left:80px;top:72px;">
+          <div class="nome-cartao">Marina Teixeira</div>
+          <div class="cargo">Torrefadora-chefe</div>
+        </div>
+        <div class="escala-rotulada" style="position:absolute;left:80px;bottom:80px;--tam:26px;">
+          <div><span class="nivel n1 cheio"></span><span>Claro</span></div>
+          <div><span class="nivel n2 cheio"></span><span>Médio-claro</span></div>
+          <div><span class="nivel n3 cheio"></span><span>Médio</span></div>
+          <div><span class="nivel n4"></span><span>Médio-escuro</span></div>
+          <div><span class="nivel n5"></span><span>Escuro</span></div>
+        </div>
+        <div class="contato" style="position:absolute;right:80px;bottom:72px;text-align:right;">
+          marina@ponto.example<br>+55 (35) 90000-0000<br>Rua Exemplo, 100, Centro, Minas Gerais
+        </div>
+      </figure>
+      <figcaption>Cartão de visita, verso. Escala de torra como informação de apoio.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="saco-250g" data-escala="2" style="width:720px;height:960px;background:var(--torra);border-radius:28px 28px 56px 56px;">
+        <div style="height:88px;background:var(--verde-cafe);border-radius:28px 28px 0 0;display:flex;justify-content:space-between;align-items:center;padding:0 44px;font:600 24px/1 var(--fonte-texto);color:var(--torra);">
+          <span>250 g</span><span>Grão inteiro</span>
+        </div>
+        <div style="position:absolute;left:0;right:0;top:196px;padding:0 56px;">
+          <img src="../logo/logo-principal-negativo.svg" alt="" style="width:430px;margin:0 auto;display:block;">
+          <p class="saco-origem">Cerrado Mineiro</p>
+          <p class="saco-notas">Caramelo, cacau e ameixa seca</p>
+        </div>
+        <div style="position:absolute;left:56px;right:56px;bottom:72px;">
+          <div class="escala-rotulada escala--negativa" style="--tam:40px;">
+            <div><span class="nivel n1 cheio"></span><span>Claro</span></div>
+            <div><span class="nivel n2 cheio"></span><span>Médio-claro</span></div>
+            <div><span class="nivel n3 cheio"></span><span>Médio</span></div>
+            <div><span class="nivel n4"></span><span>Médio-escuro</span></div>
+            <div><span class="nivel n5"></span><span>Escuro</span></div>
+          </div>
+          <p style="margin:28px 0 0;font-size:18px;line-height:26px;color:var(--verde-cafe);max-width:none;">Torra média. Lote de outubro de 2026.</p>
+        </div>
+      </figure>
+      <figcaption>Embalagem, saco de 250 g. Escala de torra indica o perfil.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="copo-luva" data-escala="2" style="width:760px;height:760px;background:var(--verde-cafe);">
+        <svg viewBox="0 0 760 760" width="760" height="760" role="img" aria-label="Copo de papel com luva">
+          <path d="M170 260 H590 L530 640 H230 Z" fill="#2b1d16"/>
+          <rect x="150" y="214" width="460" height="46" rx="23" fill="#7e4b2a"/>
+          <path d="M185.8 360 H574.2 L548.9 520 H211.05 Z" fill="#b8372c"/>
+          <image href="../logo/logo-monocromatico-pergaminho.svg" x="236" y="400" width="288" height="80.3"/>
+        </svg>
+      </figure>
+      <figcaption>Copo com luva. Logotipo monocromático Pergaminho sobre Cereja (4,98:1).</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="post-1" data-escala="1" style="width:1080px;height:1080px;background:var(--pergaminho);">
+        <img src="../logo/simbolo.svg" alt="" style="position:absolute;left:96px;top:96px;width:76px;">
+        <h2 class="titulo-post" style="position:absolute;left:96px;top:250px;width:880px;font-size:136px;line-height:1;">Sabor no ponto certo.</h2>
+        <div class="escala-rotulada" style="position:absolute;left:96px;bottom:250px;--tam:50px;">
+          <div><span class="nivel n1 cheio"></span><span>Claro</span></div>
+          <div><span class="nivel n2 cheio"></span><span>Médio-claro</span></div>
+          <div><span class="nivel n3 cheio"></span><span>Médio</span></div>
+          <div><span class="nivel n4"></span><span>Médio-escuro</span></div>
+          <div><span class="nivel n5"></span><span>Escuro</span></div>
+        </div>
+        <p style="position:absolute;left:96px;bottom:96px;margin:0;font-size:28px;line-height:36px;color:var(--cacau);max-width:none;">Cafés de especialidade, torrados em Minas Gerais.</p>
+      </figure>
+      <figcaption>Post de feed, 1080 × 1080 px. Tipografia de título em Fraunces.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="post-2" data-escala="1" style="width:1080px;height:1080px;background:var(--cereja);color:var(--pergaminho);">
+        <img src="../logo/simbolo-monocromatico-pergaminho.svg" alt="" style="position:absolute;right:-220px;bottom:-200px;width:880px;">
+        <h2 class="titulo-post" style="position:absolute;left:96px;top:96px;width:800px;font-size:104px;line-height:1.02;color:var(--pergaminho);">Novo lote do Cerrado Mineiro.</h2>
+        <p style="position:absolute;left:96px;top:520px;width:400px;margin:0;font-size:30px;line-height:40px;color:var(--pergaminho);max-width:none;">Caramelo e cacau na xícara. Torra média, pronto para o seu método.</p>
+        <span class="botao botao-secundario" style="position:absolute;left:96px;bottom:96px;font-size:20px;padding:20px 36px;">Ver o café</span>
+      </figure>
+      <figcaption>Post de feed, 1080 × 1080 px. Fundo Cereja com o símbolo monocromático.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="story" data-escala="1" style="width:1080px;height:1920px;background:var(--torra);color:var(--pergaminho);">
+        <img src="../logo/logo-principal-negativo.svg" alt="" style="position:absolute;left:96px;top:120px;width:460px;">
+        <h2 class="titulo-post" style="position:absolute;left:96px;top:700px;width:900px;font-size:150px;line-height:1;color:var(--pergaminho);">Torra nova na casa.</h2>
+        <div class="escala-rotulada escala--negativa" style="position:absolute;left:96px;top:1120px;--tam:56px;">
+          <div><span class="nivel n1 cheio"></span><span>Claro</span></div>
+          <div><span class="nivel n2 cheio"></span><span>Médio-claro</span></div>
+          <div><span class="nivel n3 cheio"></span><span>Médio</span></div>
+          <div><span class="nivel n4"></span><span>Médio-escuro</span></div>
+          <div><span class="nivel n5"></span><span>Escuro</span></div>
+        </div>
+        <p style="position:absolute;left:96px;top:1330px;width:760px;margin:0;font-size:32px;line-height:42px;color:var(--verde-cafe);max-width:none;">Notas de caramelo e cacau. Torra média, lote de outubro.</p>
+        <span class="botao botao-primario" style="position:absolute;left:96px;bottom:220px;font-size:24px;padding:24px 40px;">Escolher meu ponto</span>
+        <p style="position:absolute;left:96px;bottom:120px;margin:0;font-size:24px;line-height:32px;color:var(--mel);max-width:none;">Entrega para todo o Brasil.</p>
+      </figure>
+      <figcaption>Story, 1080 × 1920 px. Área segura de 96 px nas laterais.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="papel-timbrado" data-escala="2" style="width:794px;height:1123px;background:var(--pergaminho);padding:64px 72px;">
+        <header style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <img src="../logo/logo-principal.svg" alt="Ponto Torrefação" style="width:250px;">
+          <p class="legenda" style="text-align:right;margin:0;">marina@ponto.example<br>+55 (35) 90000-0000<br>Rua Exemplo, 100, Centro</p>
+        </header>
+        <div class="corpo-papel" style="margin-top:112px;">
+          <p class="legenda">Minas Gerais, 8 de outubro de 2026</p>
+          <p style="margin-top:32px;">À equipe de compras</p>
+          <h3 style="margin:32px 0 24px;">Proposta de parceria</h3>
+          <p>Obrigada pelo contato. Esta proposta reúne o que conversamos sobre a compra recorrente de cafés de especialidade para a sua equipe, com torra e entrega programadas.</p>
+          <p>Cada lote chega com ficha de torra, origem e notas de xícara. Assim, sua equipe escolhe o perfil certo para cada método de preparo, sem depender de tentativa e erro.</p>
+          <p>Ficamos à disposição para ajustar volumes, prazos e formas de pagamento. Basta responder a este documento ou ligar para o número acima.</p>
+          <p style="margin-top:40px;margin-bottom:0;">Marina Teixeira</p>
+          <p class="legenda" style="margin:0;">Torrefadora-chefe, Ponto Torrefação</p>
+        </div>
+        <footer style="position:absolute;left:72px;right:72px;bottom:56px;border-top:1px solid var(--mel);padding-top:16px;font-size:12px;line-height:18px;color:var(--cacau);max-width:none;">
+          Ponto Torrefação, Rua Exemplo, 100, Centro, Minas Gerais. Documento de demonstração.
+        </footer>
+      </figure>
+      <figcaption>Papel timbrado, A4. Logotipo principal no topo, rodapé com fio Mel.</figcaption>
+    </div>
+
+    <div class="item">
+      <figure class="peca" data-export="assinatura-email" data-escala="2" style="width:560px;height:176px;background:#ffffff;display:flex;gap:24px;align-items:center;padding:24px 28px;">
+        <img src="../logo/simbolo.svg" alt="" style="width:96px;flex:none;">
+        <div style="border-left:1px solid var(--verde-cafe);padding-left:24px;">
+          <div style="font:600 19px/24px var(--fonte-texto);color:var(--torra);">Marina Teixeira</div>
+          <div style="font:400 15px/22px var(--fonte-texto);color:var(--cacau);">Torrefadora-chefe, Ponto Torrefação</div>
+          <div style="font:400 15px/22px var(--fonte-texto);color:var(--torra);margin-top:6px;">marina@ponto.example<br>+55 (35) 90000-0000</div>
+          <div class="escala" style="--tam:11px;--borda:1.5px;margin-top:12px;">
+            <span class="nivel n1 cheio"></span><span class="nivel n2 cheio"></span><span class="nivel n3 cheio"></span><span class="nivel n4"></span><span class="nivel n5"></span>
+          </div>
+        </div>
+      </figure>
+      <figcaption>Assinatura de e-mail, 560 × 176 px, sobre branco.</figcaption>
+    </div>
+
+  </main>
+</body>
+</html>

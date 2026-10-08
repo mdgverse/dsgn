@@ -1,0 +1,188 @@
+/*
+ * Ponto Torrefação: base visual compartilhada pelo manual, pelo site e pelas aplicações.
+ * Os valores espelham DESIGN.md (fonte da verdade para agentes e desenvolvedores).
+ * Fontes: Fraunces e Instrument Sans, SIL Open Font License 1.1 (ver fontes/).
+ */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fontes/fraunces-latin-full-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fontes/instrument-sans-latin-wght-normal.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Cores base */
+  --torra: #2b1d16;
+  --pergaminho: #f3ede2;
+  --cereja: #b8372c;
+  --mel: #d9a441;
+  --verde-cafe: #c9d2b6;
+  --verde-folha: #4c5e3f;
+  --cacau: #6e5c50;
+
+  /* Escala de torra: do claro ao escuro */
+  --torra-1: #ebc97f;
+  --torra-2: #d9a441;
+  --torra-3: #b9773a;
+  --torra-4: #7e4b2a;
+  --torra-5: #2b1d16;
+
+  /* Tipografia */
+  --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Instrument Sans", Arial, Helvetica, sans-serif;
+
+  /* Espaçamento, escala de 8 px */
+  --espaco-xs: 8px;
+  --espaco-sm: 16px;
+  --espaco-md: 24px;
+  --espaco-lg: 32px;
+  --espaco-xl: 48px;
+  --espaco-xxl: 64px;
+  --espaco-xxxl: 96px;
+
+  /* Raios */
+  --raio-sm: 6px;
+  --raio-md: 16px;
+  --raio-lg: 28px;
+  --raio-pill: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--pergaminho);
+  color: var(--torra);
+  font: 400 16px/26px var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+
+/* Escala tipográfica (ver DESIGN.md, seção Typography) */
+h1 { font-size: 72px; line-height: 76px; letter-spacing: -0.02em; }
+h2 { font-size: 49px; line-height: 54px; letter-spacing: -0.015em; }
+h3 { font-size: 31px; line-height: 36px; letter-spacing: -0.01em; }
+h4 { font-size: 25px; line-height: 30px; }
+
+p {
+  margin: 0 0 var(--espaco-sm);
+  max-width: 68ch;
+}
+
+.lead { font-size: 20px; line-height: 30px; }
+.legenda { font-size: 13px; line-height: 18px; color: var(--cacau); }
+.rotulo { font: 600 14px/20px var(--fonte-texto); letter-spacing: 0.01em; }
+.texto-mel { color: var(--mel); }
+.texto-cacau { color: var(--cacau); }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Botões. Contraste: primário 4,98:1 (Pergaminho sobre Cereja); secundário 13,97:1 */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: 2px solid transparent;
+  border-radius: var(--raio-pill);
+  font: 600 16px/20px var(--fonte-texto);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao-primario { background: var(--cereja); color: var(--pergaminho); }
+.botao-secundario { background: var(--torra); color: var(--pergaminho); }
+.botao-contorno { background: transparent; color: var(--torra); border-color: currentColor; }
+
+/* Escala de torra: o preenchimento mostra a intensidade; o contorno garante leitura. */
+.escala,
+.escala-rotulada {
+  --linha: var(--torra);
+}
+
+.escala-rotulada {
+  display: inline-flex;
+  gap: calc(var(--tam, 28px) * 0.7);
+}
+
+.escala {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--tam, 28px) * 0.4);
+}
+
+.escala-rotulada > div {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  font: 500 15px/20px var(--fonte-texto);
+}
+
+.nivel {
+  display: block;
+  flex: none;
+  width: var(--tam, 28px);
+  height: var(--tam, 28px);
+  border: var(--borda, 2px) solid var(--linha);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.nivel.cheio.n1 { background: var(--torra-1); }
+.nivel.cheio.n2 { background: var(--torra-2); }
+.nivel.cheio.n3 { background: var(--torra-3); }
+.nivel.cheio.n4 { background: var(--torra-4); }
+.nivel.cheio.n5 { background: var(--torra-5); }
+
+.escala--negativa {
+  --linha: var(--pergaminho);
+  color: var(--pergaminho);
+}
+
+/* Malha de pontos: textura de apoio, nunca atrás de texto corrido */
+.malha-pontos {
+  background-image: radial-gradient(circle at center, rgba(43, 29, 22, 0.16) 1.4px, transparent 1.6px);
+  background-size: 24px 24px;
+}
+
+.visualmente-oculto {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
