@@ -13,5 +13,3 @@ build/npm-install.log
 .cache/
 .env
 
-# Documento único gerado por clientes/ponto-torrefacao/build/gerar_documento_unico.py (reconstruível; não versionado)
-clientes/ponto-torrefacao/identidade-completa.html

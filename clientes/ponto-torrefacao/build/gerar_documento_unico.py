@@ -14,6 +14,7 @@ A saída fica na raiz do cliente. Ela não é versionada: este script a reconstr
 
 import base64
 import html
+from datetime import date
 import pathlib
 import re
 import sys
@@ -183,6 +184,13 @@ def tabela_arquivos():
     )
 
 
+def data_extensa():
+    meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+             "agosto", "setembro", "outubro", "novembro", "dezembro"]
+    hoje = date.today()
+    return f"{hoje.day} de {meses[hoje.month - 1]} de {hoje.year}"
+
+
 def main():
     brand = embutir(ler("brand/brand.css"))
 
@@ -208,7 +216,7 @@ def main():
     <p class="doc-kicker">Projeto de demonstração · dados fictícios</p>
     <h1>Identidade visual completa</h1>
     <p class="doc-capa-lead">Briefing, escopo, manual, peças de aplicação, site de demonstração e arquivos, em um único documento.</p>
-    <p class="doc-meta">Gerado em 8 de outubro de 2026</p>
+    <p class="doc-meta">Gerado em {data_extensa()}</p>
   </div>
   <nav class="doc-indice" aria-label="Sumário">{indice}</nav>
 </header>"""
