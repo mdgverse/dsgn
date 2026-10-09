@@ -19,6 +19,7 @@ Depois abra `http://localhost:8000` no navegador. Todos os caminhos são relativ
 | Caminho | Conteúdo |
 | --- | --- |
 | `index.html` | Hub com links para o manual, o site, as aplicações, os logotipos e os documentos |
+| `identidade-completa.html` | Documento único com toda a identidade, para abrir sem as outras pastas. Gerado, não versionado |
 | `briefing.md` | Briefing fictício: cliente, público, posicionamento, objetivos e perguntas em aberto |
 | `ESCOPO.md` | Fases, entregas, fora do escopo, revisões, critérios de aceite e investimento |
 | `DESIGN.md` | Tokens e regras de uso no formato DESIGN.md. É a fonte dos tokens |
@@ -31,7 +32,7 @@ Depois abra `http://localhost:8000` no navegador. Todos os caminhos são relativ
 | `site/index.html` | Site de demonstração, com a home completa |
 | `aplicacoes/index.html` | Peças de aplicação. Cada peça com `data-export` vira um PNG |
 | `aplicacoes/png/` | PNG exportados das peças e da primeira dobra do site |
-| `build/` | Scripts de geração: `gerar_logos.py`, `exportar.mjs` e `package.json` |
+| `build/` | Scripts de geração: `gerar_logos.py`, `exportar.mjs`, `gerar_documento_unico.py` e `package.json` |
 
 ## Como regenerar
 
@@ -66,6 +67,15 @@ npx @google/design.md export --format css-vars --prefix ponto DESIGN.md > tokens
 ```
 
 O lint deve terminar com 0 erros.
+
+### Documento único (HTML)
+
+```bash
+pip3 install --user --break-system-packages markdown
+python3 build/gerar_documento_unico.py
+```
+
+O script grava `identidade-completa.html` na raiz do cliente. O arquivo junta briefing, escopo, manual, peças, site de demonstração, arquivos e skills, com fontes, logotipos e imagens embutidos. Ele abre sem as outras pastas. Se as peças mudarem, rode antes `npm run exportar`. O HTML não é versionado: gere de novo sempre que um texto ou uma peça mudar.
 
 ## Limites desta demonstração
 

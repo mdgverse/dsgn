@@ -12,3 +12,6 @@ build/npm-install.log
 # Caches e segredos locais
 .cache/
 .env
+
+# Documento único gerado por clientes/ponto-torrefacao/build/gerar_documento_unico.py (reconstruível; não versionado)
+clientes/ponto-torrefacao/identidade-completa.html
